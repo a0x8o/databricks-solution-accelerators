@@ -171,7 +171,7 @@ job_json = {
                 "new_cluster": {
                     "spark_version": "10.4.x-cpu-ml-scala2.12",
                     "num_workers": 2,
-                    "node_type_id": {"AWS": "i3.xlarge", "MSA": "Standard_DS3_v2", "GCP": "n1-highmem-4"}
+                    "node_type_id": {"AWS": "i3.xlarge", "MSA": "Standard_L8s_v3", "GCP": "n1-highmem-4"}
                 }
             },
             {
@@ -179,7 +179,7 @@ job_json = {
                 "new_cluster": {
                     "spark_version": "10.4.x-cpu-ml-scala2.12",
                     "num_workers": 2,
-                    "node_type_id": {"AWS": "i3.xlarge", "MSA": "Standard_DS3_v2", "GCP": "n1-highmem-4"},
+                    "node_type_id": {"AWS": "i3.xlarge", "MSA": "Standard_L8s_v3", "GCP": "n1-highmem-4"},
                     "init_scripts": [
                         {
                             "dbfs": {
@@ -194,7 +194,7 @@ job_json = {
                 "new_cluster": {
                     "spark_version": "10.4.x-gpu-ml-scala2.12",
                     "num_workers": 1,
-                    "node_type_id": {"AWS": "g4dn.4xlarge", "MSA": "Standard_NC6s_v3", "GCP": "a2-highgpu-1g"},
+                    "node_type_id": {"AWS": "g4dn.4xlarge", "MSA": "Standard_NC12s_v3", "GCP": "a2-highgpu-1g"},
                     "init_scripts": [
                         {
                             "dbfs": {
@@ -212,10 +212,6 @@ job_json = {
 dbutils.widgets.dropdown("run_job", "False", ["True", "False"])
 run_job = dbutils.widgets.get("run_job") == "True"
 NotebookSolutionCompanion().deploy_compute(job_json, run_job=run_job)
-
-# COMMAND ----------
-
-
 
 # COMMAND ----------
 
